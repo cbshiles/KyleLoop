@@ -25,3 +25,8 @@ vorbisfile_example.c
 7)send server music steam through a javascript application
 8)talk to kyle
 9)make it look nice
+
+------------------------------------------------------
+
+1) Do a Node.js tutorial
+2) Get streaming audio FROM SERVER (already got local)
