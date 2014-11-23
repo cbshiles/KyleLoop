@@ -1,7 +1,4 @@
-function geT(id) {
-
-    return document.getElementById(id)
-}
+function geT(id) { return document.getElementById(id) }
 
 function print(thing) {
     geT("demo").innerHTML = thing

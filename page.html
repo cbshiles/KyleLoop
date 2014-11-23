@@ -9,18 +9,15 @@
 
   <h1 id=demo>Javascript in seperate file</h1>
 
-  <button type="button" onclick="console.log(makePerson('Penelope', 'Barrymore').fullName())">Try it</button>
+  <button type="button" onclick="loadSong('00001_Sonny Boy Williamson - Good Morning Little Schoolgirl.ogg', 5, 10)">Try it</button>
 
-  <input class="textBox" id="iVal" type="text" maxlength="30"    required/>
+  <button type="button" onclick="implemented()">Is it?</button>
 
-  <script src="script3.js">fa(8)</script>
+  <input class="textBox" id="iVal" type="text" maxlength="30"    />
 
-  <audio id="audio" src="00001_Sonny Boy Williamson - Good Morning Little Schoolgirl.ogg"></audio>
-  <script>
-    var audio = document.getElementById("audio");
-    audio.addEventListener('MozAudioAvailable', someFunction, false);
-    audio.autoplay = true
-  </script>
+  <script src="tune.js"></script>
+
+  <audio id="yaa" ></audio>
 
 </body>
 
