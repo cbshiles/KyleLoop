@@ -7,7 +7,7 @@ var http = require('http'),
 function direct(path){
     if (path == '/')
 	path += 'index.html'
-    return '.'+path
+    return './client'+path
 }
 
 function doit(port){
