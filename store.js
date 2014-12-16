@@ -17,8 +17,8 @@ function doit(port){
 	    res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})	    
 	    res.write(data)
 	    res.end()})
-    }).listen(port, 'localhost')
-    console.log('Server running.')
+    }).listen(port) //, 'localhost')
+    console.log('Server running on '+port+'.')
 }
 
 
