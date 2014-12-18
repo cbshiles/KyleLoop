@@ -1,13 +1,10 @@
- <!DOCTYPE html>
-<html>
- <meta charset="UTF-8"> 
-<head>
-  <title>Play Loop </title>
-</head>
+<title>Looper</title>
 
-<body>
-<audio id="sole" controls>
+<form>
+<input type="file" id="selected" accept="audio/*">
+<input type="submit">
+</form>
 
-</body>
+<button type="button" onclick="picked()">Load song</button>
 
-</html> 
+<audio id="player" ></audio>
