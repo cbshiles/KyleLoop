@@ -1,6 +1,14 @@
 KyleLoop
 ========
 
+Get node.js to provide basic websites without errors
+
+Create the basic 3 sites youve already manually written
+
+Gradually add all the functionality
+
+------------------------------------------------------
+
 Loops a part of a song
 
 1)Repository made
