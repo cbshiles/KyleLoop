@@ -1,16 +1,28 @@
 var http = require('http')
 var url = require('url')
 var fs = require('fs')
-var express = require('express')
-
-var app = express()
+var sys = require('sys')
+var exec = require('child_process').exec
 
 function route(req, res){
-   console.log(req.method)
 
-    var path = url.parse(req.url).pathname
+    var url_obj = url.parse(req.url)
+    var path = url_obj.pathname
     if (path == '/')
 	path += 'index.html'
+
+   console.log(req.method)
+
+    if (req.method == 'POST') {
+
+	if (path == '/song_list') {
+	    exec('cd ../Tunes; ls *.ogg', function (error, stdout, stderr) {
+		if (error !== null){console.log('exec err: %s', error)}
+		res.end(stdout)
+	    })}
+
+	return //This might have to go
+    }
 
 /*
 also look and make sure there's no other parts of that url we want
@@ -30,24 +42,28 @@ also look and make sure there's no other parts of that url we want
 
     console.log("xten: %s", xten)
     if(xten == 'html'){
-	console.log('yup')
+	console.log(name)
 	path = './client'+path
 	readF = function(err, data) {
 	    res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+	    res.write(data)	    
 	    include('http://code.jquery.com/jquery-1.11.1.min.js')
 	    include(name+'.js')
-	    res.write(data)
 	    res.end()}
     }
     else if(xten == 'js'){
-//test if begging of name is srv_
 	path = './client'+path
 	readF = base
     }
     else if(xten == 'ogg'){
-	path = './Music'+path
+	path = '../Tunes'+path
 	readF = base
     }
+    else if (xten == 'form'){
+	console.log(req.headers)
+	console.log(url_obj.search)
+	res.end('lets figure it out')
+}
     else {
 	console.log(path)
 	console.log("Unaccepted file type")
@@ -56,12 +72,9 @@ also look and make sure there's no other parts of that url we want
     fs.readFile(path, readF)
 }
 
-app.get('/', route)
-
 function doit(port){
-    var server = app.listen(port, function(){
-	console.log('Server listening at http://%s:%s', server.address().address, port)
-})}
-
+http.createServer(route).listen(port)  //localhost
+console.log('Server running on %s.', port)
+}
 
 doit(8888)

@@ -1,13 +1,12 @@
 <title>Looper</title>
 
-<form action="picked.js" id="picker">
- <select>
+<select id="songs">
   <option value="volvo">Volvo</option>
   <option value="saab">Saab</option>
   <option value="mercedes">Mercedes</option>
   <option value="audi">Audi</option>
- </select> 
- <input type="submit" value="Play song">
-</form>
+</select> 
+
+<button type="button" onclick="picked()">Play song</button>
 
 <audio id="player" ></audio>
