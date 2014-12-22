@@ -5,6 +5,8 @@ url = require('url'),
 fs = require('fs');
 
 function route(req, res){
+    console.log(req.method)
+
     var path = url.parse(req.url).pathname
     if (path == '/')
 	path += 'index.html'
@@ -35,6 +37,7 @@ also look and make sure there's no other parts of that url we want
 	    res.end()}
     }
     else if(xten == 'js'){
+//test if begging of name is srv_
 	path = './client'+path
 	readF = base
     }
