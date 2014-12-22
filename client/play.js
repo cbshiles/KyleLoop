@@ -1,5 +1,9 @@
 var player
 
+//Get a drop down menu (a select) in a form and do a ls
+//or some other method of getting all the song name to populate
+//that select. Then, of course play whatever was chosen
+
 function initialize(){
     player = $('#player')[0]
     player.controls = true

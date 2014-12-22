@@ -1,11 +1,12 @@
+var http = require('http')
+var url = require('url')
+var fs = require('fs')
+var express = require('express')
 
-
-var http = require('http'),
-url = require('url'),
-fs = require('fs');
+var app = express()
 
 function route(req, res){
-    console.log(req.method)
+   console.log(req.method)
 
     var path = url.parse(req.url).pathname
     if (path == '/')
@@ -27,7 +28,9 @@ also look and make sure there's no other parts of that url we want
 
     function include(url) {res.write('<script src="'+url+'"> </script>')}
 
+    console.log("xten: %s", xten)
     if(xten == 'html'){
+	console.log('yup')
 	path = './client'+path
 	readF = function(err, data) {
 	    res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
@@ -53,10 +56,12 @@ also look and make sure there's no other parts of that url we want
     fs.readFile(path, readF)
 }
 
+app.get('/', route)
+
 function doit(port){
-    http.createServer(route).listen(port) //, 'localhost')
-    console.log('Server running on '+port+'.')
-}
+    var server = app.listen(port, function(){
+	console.log('Server listening at http://%s:%s', server.address().address, port)
+})}
 
 
 doit(8888)
