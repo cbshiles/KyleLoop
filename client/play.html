@@ -1,12 +1,14 @@
 <title>Looper</title>
 
-<select id="songs">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select> 
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"> </script>
+<link rel="stylesheet" href="play.css">​
+
+<select id="songs"></select> 
 
 <button type="button" onclick="picked()">Play song</button>
 
-<audio id="player" ></audio>
+<audio id="player"></audio>
+
+<div id="slider"></div>
+
+<button type="button" onclick="console.log('%s %s', start, stop)">Tets</button>

@@ -11,62 +11,44 @@ function route(req, res){
     if (path == '/')
 	path += 'index.html'
 
-   console.log(req.method)
-
     if (req.method == 'POST') {
-
 	if (path == '/song_list') {
 	    exec('cd ../Tunes; ls *.ogg', function (error, stdout, stderr) {
-		if (error !== null){console.log('exec err: %s', error)}
+		if (error !== null){console.log('Unix error: %s', error)}
 		res.end(stdout)
 	    })}
-
-	return //This might have to go
+	return 0
     }
 
-/*
-also look and make sure there's no other parts of that url we want
-*/
     var xten_pos = path.search(/\.[a-z]+$/)
     var name = path.substring(path.lastIndexOf('/')+1, xten_pos)
     var xten = path.substring(xten_pos+1)
-
-    var readF //this function will be called to give response to the request
 
     function base(err, data) {
 	if(err)	{return console.log(err)}
 	res.end(data)
     }
 
-    function include(url) {res.write('<script src="'+url+'"> </script>')}
+    var readF = base //function that gives response to the request
 
-    console.log("xten: %s", xten)
     if(xten == 'html'){
-	console.log(name)
+    function include(url) {res.write('<script src="'+url+'"> </script>')}
 	path = './client'+path
 	readF = function(err, data) {
 	    res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-	    res.write(data)	    
 	    include('http://code.jquery.com/jquery-1.11.1.min.js')
+	    res.write(data)	    
 	    include(name+'.js')
 	    res.end()}
     }
-    else if(xten == 'js'){
+    else if(xten == 'js' || xten == 'css'){
 	path = './client'+path
-	readF = base
     }
     else if(xten == 'ogg'){
 	path = '../Tunes'+path
-	readF = base
     }
-    else if (xten == 'form'){
-	console.log(req.headers)
-	console.log(url_obj.search)
-	res.end('lets figure it out')
-}
     else {
-	console.log(path)
-	console.log("Unaccepted file type")
+	console.log("Unaccepted file type: %s", path)
 	return 1
     }
     fs.readFile(path, readF)
