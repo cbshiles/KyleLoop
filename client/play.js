@@ -13,28 +13,43 @@ $.post('song_list', function(song_list) {
 var start = 0
 var stop  = 10
 
+function dubz(a, b){
+    a = (a >= 0) ? a : 0
+    b = (b <= max) ? b : max
+    if(a>b){
+	var tmp = a
+	a = b
+	b = tmp
+    }
+    $('#slider').slider('values', [a, b])
+    start = $('#starT')[0].value = a
+    stop = $('#sTop')[0].value = b
+}
+
 function slide(n) {
     $('#slider').slider({
 	range: true,
-	min: -5, //negatives, warm-up time
+ //have a pause beforehand, sepearete for slider
+	min: 0,
 	max: n,
 	values: [0, n],
 	slide: function(event, ui){
-	    start = ui.values[0]
-	    stop = ui.values[1]
+	    dubz(ui.values[0], ui.values[1])
 	}})}
 
 var player
 
 var still = true
 var curr = -1
+var max
 function timeCheck(){
     if (player.currentTime > stop || player.currentTime < start)
        player.currentTime = start
-    if (still){
+
+    if (still){ //for initializing slider range
 	var gnu = player.buffered.end(0)
 	if (gnu==curr){
-	    var max = Math.ceil(curr)
+	    max = Math.ceil(curr)
 	    slide(max)
 	    stop = max
 	    still = false
@@ -57,6 +72,5 @@ function picked(){
     if(! player){initialize()} //only run on 1st time clicked
     player.src = song
     player.play()
-    
-}
+ }
 
