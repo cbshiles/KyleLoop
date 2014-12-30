@@ -3,24 +3,35 @@
 <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"> </script>
 <link rel="stylesheet" href="play.css">​
 
-<div id="page">
+<div id="slider"></div> 
+<br/>
 
-  <select id="songs"></select> 
+<div id="temple">
+  <div id="selector" class="col">
+    <br/>
+    <select id="songs"></select> 
 
-  <button type="button" onclick="picked()">Play song</button>
+    <button type="button" onclick="picked()">Play song</button>
+    <br/><br/>
+    <audio id="player"></audio>
+  </div>
 
-  <audio id="player"></audio>
+  <div id="settings" class="col">
+    <p> Initial pause:
+      <input class="textBox" id="halT" type="text" value="0" maxlength="11">
+    </p>
 
-  <div id="slider"></div> 
+    <p>Beginning of loop:
+      <input class="textBox" id="starT" type="text" maxlength="11">
+    </p>
 
-  <button type="button" 
-	  onclick="dubz($('#starT')[0].value, $('#sTop')[0].value)"
-	  >Change loop</button>
+    <p>End of loop:
+      <input class="textBox" id="sTop" type="text" maxlength="11">
+    </p>
 
-  <input class="textBox" id="starT" type="text" maxlength="11">
-
-  <input class="textBox" id="sTop" type="text" maxlength="11">
-
+    <button type="button" onclick="reloop()">
+      Restart loop </button>
+  </div>
 </div>
 
 

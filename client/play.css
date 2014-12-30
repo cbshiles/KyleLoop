@@ -1,51 +1,39 @@
 body{
     background: #CECECE !important;
     padding:10px;
-    margin: 25px 50px;
-}
-
-#page {
-    margin: 100px 100px;
     position: absolute;
 }
 
-#slider {
-    position: absolute;
-    width: 100px;
-    margin: 100px 100px;
-}
-
-/*the slider background*/
+/*the slider background?*/
 .slider {
-    width: 20px;
     height:10px;
     background: #0000FF;
-    position:absolute;
-    margin:25px 25px;
-    padding:0 25px;
+    position:relative;
+    margin:25px ;
 }
-
 
 /*Style for the slider button*/
 .ui-slider-handle {
-    width:20px;
-    height:20px;
-    position:absolute;
-    top:-3px;
-    /*margin-left:-12px;*/
+    width:15px;
+    height:15px;
+    position: absolute;
     z-index:200;
     background:#FF4719;
     outline:none;
-    margin:100px 100px;
+    margin:25px;
 }
 
 /*This is the fill bar colour*/
 .ui-widget-header {
-    width:20px;
+    width:100%;
     background:#000000;
-    height:16px;
-    left:1px;
-    top:1px;
-    position:absolute;
-    margin:100px 100px;
+    height:15px;
+    position: absolute;
+    margin:25px;
+}
+
+.col {
+    display:inline-block; 
+    vertical-align:top;
+    margin: 30px;
 }
