@@ -1,15 +1,15 @@
 <title>Load Track</title>
 
 <p>
-  <input class="textBox" id="iVal" type="text" maxlength="30">
-  <button type="button" onClick="download('iVal')" > Download </button>
+  <input class="textBox" id="iVal" type="text" >
+  <button type="button" onClick="download()" > Download </button>
   Enter a URL, download a song from Youtube.
 </p>
 
 <br/>
 
 <p>
-  <form action="submit.js" method="get">
+  <form method="post" action="upload" >
     <input type="file" id="selected" accept="audio/*">
     <input type="submit">
   </form>

@@ -1,10 +1,6 @@
-//Use the file chooser from play.js, figure out how to allow actual
-//upload of media
-
-
-//Use this as the very rudimentary start to the connection 
-//to youtube-dl 
-function download(txtBox)
+function download()
 {
-    console.log($('#txtBox')[0].value)
+    $.post('ytdl', $('#iVal')[0].value,  function(ret_val){
+	alert("Song was added to the server "+ret_val)
+    })
 }
