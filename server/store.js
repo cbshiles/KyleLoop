@@ -43,11 +43,11 @@ function route(req, res){
 		    else { exec('convert.sh', function (error, stdout, stderr) {
 			if (error !== null){res.end("Error converting file")}
 			else {res.end(stdout)}})}
-		}
-		
+		})})}
+	
 	return 0 
     }
-
+    
 	var xten_pos = path.search(/\.[a-z]+$/)
 	var name = path.substring(path.lastIndexOf('/')+1, xten_pos)
 	var xten = path.substring(xten_pos+1)
