@@ -43,8 +43,8 @@ function route(req, res){
 		    else { exec('convert.sh', function (error, stdout, stderr) {
 			if (error !== null){res.end("Error converting file")}
 			else {res.end(stdout)}})}
-		}
-		
+		})})}
+	
 	return 0 
     }
 
