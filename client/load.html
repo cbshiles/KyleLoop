@@ -1,18 +1,20 @@
 <title>Load Track</title>
 
-<p>
-  <input class="textBox" id="iVal" type="text" >
-  <button type="button" onClick="download()" > Download </button>
-  Enter a URL, download a song from Youtube.
-</p>
+<link rel="stylesheet" href="load.css">​
 
-<br/>
+<div id="meeps">
+  <div id="ytdl" class="col">
+    Enter a URL, download a song from Youtube. <br/>
+    <input class="textBox" id="iVal" type="text" >
+    <button type="button" onClick="download()" > Download </button>
+  </div>
 
-<p>
-  <form method="post" action="upload" >
-    <input type="file" id="selected" accept="audio/*">
-    <input type="submit">
-  </form>
-  Upload a song from your computer.
-</p>
 
+  <div id="upl" class="col">
+    Upload a song from your computer. <br/>
+    <form method="post" action="upload" >
+      <input type="file" id="selected" accept="audio/*">
+      <input type="submit">
+    </form>
+  </div>
+</div>

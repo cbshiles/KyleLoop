@@ -1,0 +1,11 @@
+body{
+    background: #CECECE !important;
+    padding:10px;
+    position: absolute;
+}
+
+.col {
+    display:inline-block; 
+    vertical-align:top;
+    margin: 30px;
+}
